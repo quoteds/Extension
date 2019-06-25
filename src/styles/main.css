@@ -1,0 +1,110 @@
+@font-face {
+    font-family: 'MetropolisItalic';
+    src: url('../fonts/metropolis/Metropolis-RegularItalic.otf')
+}
+
+@font-face {
+    font-family: 'metropolisLight';
+    src: url('../fonts/metropolis/Metropolis-Light.otf')
+}
+
+@font-face {
+    font-family: 'corbelitalic';
+    src: url('../fonts/corbel/corbeli.ttf')
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+body {
+    background-color: #333C44;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#logo {
+    width: 70%;
+    position: relative;
+    top: 50px;
+    left: 100px;
+}
+
+.time {
+    color: white;
+    position: relative;
+    top: 30px;
+    font-family: metropolisLight;
+    right: 100px;
+}
+
+.container {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    overflow: hidden;
+}
+
+.quote {
+    color: white;
+    text-align: center;
+}
+
+.lines {
+    align-self: center;
+    font-family: 'Playfair Display';
+    width: 70%;
+    margin: 0 auto;
+}
+
+.lines span {
+    display: inline;
+    vertical-align: middle;
+    font-size: 2.3em;
+}
+
+.lines i {
+    position: relative;
+    opacity: 0.5;
+    left: -5px;
+}
+
+.author p {
+    font-family: MetropolisLight;
+    position: relative;
+    left: 20%;
+    top: 30px;
+}
+
+.like {
+    width: 60px;
+    height: 27px;
+    background: white;
+    border-radius: 50px;
+    color: black;
+    position: relative;
+    left: 75%;
+    top: -9px;
+    text-align: center; 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+.like > p {
+    margin: 0;
+    padding-top: 6px;
+    font-family: metropolisLight;
+    padding-left: 7px; 
+}
+
+.like > i {
+    margin: 0;
+    padding-top: 6px;
+}

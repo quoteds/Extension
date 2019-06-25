@@ -1,0 +1,24 @@
+{
+    "name": "Quoted",
+    "author": "quoted.com",
+    "version": "1.0",
+    "manifest_version" : 2,
+    "browser_action": {
+        "browser_style": true,
+        "default_title": "Quoted"
+    },
+    "homepage_url": "https://animetab.github.io/",
+    "chrome_url_overrides": {
+        "newtab": "src/layout/index.html"
+    },
+    "background": {
+        "scripts": ["src/scripts/background.js"],
+        "persistent": false
+    },
+    "icons": {
+        "16": "src/logos/16.png",
+        "32": "src/logos/icon.png",
+        "48": "src/logos/48.png",
+        "128": "src/logos/128.png"
+    }
+}
