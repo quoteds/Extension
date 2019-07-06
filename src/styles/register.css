@@ -1,0 +1,56 @@
+
+@font-face {
+    font-family: 'metropolis';
+    src: url('../fonts/metropolis/Metropolis-Bold.otf')
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+}
+
+#logo {
+    width: 17%;
+    position: relative;
+    top: 50px;
+    left: 100px;
+}
+
+.title {
+    font-family: metropolis;
+    font-size: 62px;
+    position: relative;
+    left: 100px;
+    color: #1B1F3B;
+    margin-top: 8%;
+}
+
+.cards {
+    height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.card {
+    width: 21%;
+    height: 54 %;
+    background-color: #4D5AF7;
+    border-radius: 8px;
+    /* position: relative;
+    left: 100px; */
+}
+
+.back {
+    height: 70%;
+    z-index: -10;
+    width: 100%;
+    clip-path: polygon(100% 33%, 0% 100%, 100% 100%);
+    background-color: #FFC156;
+    position: absolute;
+    bottom: 0px;
+}

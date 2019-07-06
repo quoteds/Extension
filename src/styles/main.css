@@ -9,6 +9,11 @@
 }
 
 @font-face {
+    font-family: 'metropolis';
+    src: url('../fonts/metropolis/Metropolis-Regular.otf')
+}
+
+@font-face {
     font-family: 'corbelitalic';
     src: url('../fonts/corbel/corbeli.ttf')
 }
@@ -17,6 +22,7 @@ html, body {
     height: 100%;
     overflow: hidden;
 }
+
 body {
     background-color: #333C44;
 }
@@ -74,10 +80,16 @@ body {
     left: -5px;
 }
 
-.author p {
+.tools {
+    display: flex;
+    justify-content: center;
+    margin-left:45%;
+}
+
+.auth {
     font-family: MetropolisLight;
     position: relative;
-    left: 20%;
+    display: block;
     top: 30px;
 }
 
@@ -88,8 +100,8 @@ body {
     border-radius: 50px;
     color: black;
     position: relative;
-    left: 75%;
-    top: -9px;
+    top: 39px;
+    margin-left: 20px;
     text-align: center; 
     display: flex;
     flex-direction: row;
@@ -107,4 +119,101 @@ body {
 .like > i {
     margin: 0;
     padding-top: 6px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.podcast {
+    width: 120px;
+    height: 35px;
+    border-radius: 2px;
+    background-color: white;
+    position: relative;
+    left: 100px;
+    font-family: metropolis;
+    text-align: center;
+}
+
+.podcast p {
+    margin-top: 10px;
+}
+
+.category {
+    display: flex;
+}
+
+.current {
+    margin-right: 50px;
+    font-family: metropolis;
+    color: white;
+    opacity: 0.5;
+}
+
+.button {
+    width: 120px;
+    height: 35px;
+    border-radius: 2px;
+    background-color: white;
+    margin-right: 100px;
+    display: flex;
+    font-family: metropolis; 
+    font-size: 0.85em;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.button i {
+    padding-right: 10px;
+    padding-top: 5px;
+}
+
+.button p {
+    padding-left: 10px;
+}
+
+.cats {
+    /* display: none; */
+    height: 0px;
+    position: absolute;
+    bottom: 10%;
+    background-color: white;
+    width: 120px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+ul {
+    padding: 0;
+}
+
+.hide {
+    margin-top: 15%;
+    list-style: none;
+    opacity: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+}
+
+.transform {
+    transition: all 2s ease-out;
+}
+
+.transform_back {
+    transition: all 1s ease-out;
+}
+
+.show {
+    margin-top: 15%;
+    list-style: none;
+    opacity: 1;
 }

@@ -15,6 +15,9 @@
         "scripts": ["src/scripts/background.js"],
         "persistent": false
     },
+    "permissions": [
+        "storage"
+    ],
     "icons": {
         "16": "src/logos/16.png",
         "32": "src/logos/icon.png",

@@ -7,6 +7,7 @@
     <link href="../styles/main.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/c914e8ea9f.js"></script>
+    <script async src="../scripts/bundle.js"></script>
     <title>Quoted</title>
 </head>
 <body>
@@ -15,20 +16,18 @@
             <img src="../logos/logobig.png" id="logo">
         </div>
         <div class="time">
-            <p>1:35 p.m</p>
-            <p>Thurs 14</p>
+            <p id="time"></p>
+            <p class="date"></p>
         </div>
     </section>
     <div class="container">
         <div class="quote">
             <div class="lines">
                 <i class="fas fa-quote-left fa-2x"></i>
-                <span>If you don’t design your own life plan, chances are you’ll fall into someone else’s plan and guess what they have planned for you? Not much.</span>
+                <span class="title"></span>
             </div>
             <div class="tools">
-                <div class="author">
-                    <p>-Arthur Ashe</p>
-                </div>
+                <p class="auth">-Arthur Ashe</p>
                 <div class="like">
                     <i class="far fa-heart"></i>
                     <p>12</p>
@@ -37,7 +36,28 @@
         </div>
     </div>
     <section class="footer">
-        
+        <div class="podcast">
+            <p>Podcast</p>
+        </div>
+        <div class="category">
+            <div class="current">
+                <p id="current_tag"></p>
+            </div>
+            <div class="button">
+                <p>Categories</p>
+                <i class="fas fa-sort-up"></i>
+                <div class="cats">
+                    <ul>
+                        <li class="hide transform"><a class="choice" href="#">Motivate</a></li>
+                        <li class="hide transform"><a class="choice" href="#">Spiritual</a></li>
+                        <li class="hide transform"><a class="choice" href="#">Nature</a></li>
+                        <li class="hide transform"><a class="choice" href="#">Anime</a></li>
+                        <li class="hide transform"><a class="choice" href="#">Life</a></li>
+                        <li class="hide transform"><a class="choice" href="#">Love</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 </body>
 </html>
