@@ -35,7 +35,6 @@ html, body {
 }
 
 .cards {
-    height: 50vh;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -43,14 +42,14 @@ html, body {
 }
 
 .card {
-    width: 21%;
-    height: 54%;
+    width: 28%;
     background-color: #4D5AF7;
     border-radius: 8px;
     /* position: relative;
     left: 100px; */
     box-shadow: 0px 18px 21px rgba(39, 56, 255, 0.16);
     cursor: pointer;
+    margin-top: 20px;
 }
 
 .back {
@@ -78,11 +77,6 @@ html, body {
 }
 
 .likes {
-    padding-right: 30px;
-    margin-top: 10%;
-}
-
-.users {
     padding-left: 30px;
     margin-top: 10%;
 }

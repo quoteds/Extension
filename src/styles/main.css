@@ -36,7 +36,7 @@ body {
     width: 70%;
     position: relative;
     top: 50px;
-    left: 100px;
+    left: 50px;
 }
 
 .time {
@@ -44,7 +44,7 @@ body {
     position: relative;
     top: 30px;
     font-family: metropolisLight;
-    right: 100px;
+    right: 50px;
 }
 
 .container {
@@ -107,6 +107,7 @@ body {
     flex-direction: row;
     justify-content: center;
     align-content: center;
+    cursor: pointer;
 }
 
 .like > p {
@@ -121,9 +122,18 @@ body {
     padding-top: 6px;
 }
 
+.heart {
+    margin: 0;
+    padding-top: 6px;
+}
+
+.heart_red {
+    color: red;
+}
+
 .footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .podcast {
@@ -157,7 +167,7 @@ body {
     height: 35px;
     border-radius: 2px;
     background-color: white;
-    margin-right: 100px;
+    margin-right: 50px;
     display: flex;
     font-family: metropolis; 
     font-size: 0.85em;

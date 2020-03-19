@@ -5,7 +5,13 @@ let quotes = []
 let cat
 let quote
 let ret = localStorage.getItem("category").toLowerCase()
+// let ret = "anime"
 let done = true;
+let store = [];
+if(localStorage.getItem("liked")) {
+    store = JSON.parse(localStorage.getItem("liked"))
+}
+localStorage.setItem("liked",JSON.stringify(store))
 
 let colors = ["#333C44","#70B17C","#AF3B33"]
 
@@ -33,6 +39,10 @@ const run = () => {
         // let day = ans.substr(0,4)
         document.querySelector('.date').innerHTML = `${ans.substring(0,3)}  ${ans.substring(8,10)}`
         console.log(date.startOfYesterday())
+        console.log(JSON.parse(localStorage.getItem("liked")))
+        let arr = JSON.parse(localStorage.getItem("liked"))
+        if(arr.includes(quote.quote))
+            document.querySelector('.fa-heart').classList.add('heart_red')
     })
     let updateClock = () => {
         let d = new Date()
@@ -83,8 +93,42 @@ let changecat = (e) => {
     run()
 }  
 
+let like = (e) => {
+    console.log("hello")
+    if(!document.querySelector('.fa-heart').classList.contains('heart_red')) {
+        document.querySelector('.fa-heart').classList.add('animated','pulse', 'heart_red')
+        let curr = document.querySelector('.counter').innerHTML
+        console.log(curr)
+        document.querySelector('.counter').innerHTML = parseInt(curr,10)+1
+        let liked = document.querySelector('.title').innerHTML
+        let user_likes = JSON.parse(localStorage.getItem("liked"))
+        console.log(user_likes)
+        user_likes.push(liked)
+        localStorage.setItem("liked",JSON.stringify(user_likes))
+        fetch(`http://127.0.0.1:5000/like`, {
+            method: "PUT",
+            body: JSON.stringify({
+                cat: ret,
+                quote: liked,
+                like: parseInt(curr,10)+1
+            }),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then((resp) => resp.json())
+        .then((data) => console.log(data))
+        console.log(user_likes)
+    }
+    
+}
 document.querySelector('.button').addEventListener("click",showcats)
+
 document.querySelectorAll('.choice').forEach((choice) => {
     choice.addEventListener("click",changecat)
 })
+
+document.querySelector('.like').addEventListener("click", like)
+
 run()
