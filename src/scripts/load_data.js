@@ -4,6 +4,8 @@ let motion = require('animejs')
 let quotes = []
 let cat
 let quote
+if(!localStorage.getItem("category"))
+    localStorage.setItem("category","anime")
 let ret = localStorage.getItem("category").toLowerCase()
 // let ret = "anime"
 let done = true;
@@ -18,6 +20,7 @@ let colors = ["#333C44","#70B17C","#AF3B33"]
 document.querySelector('#current_tag').innerHTML = ''+ret[0].toUpperCase()+ret.substr(1)
 
 const run = () => {
+    console.log("running again")
     fetch(`http://127.0.0.1:5000/${ret}`)
     .then((resp) => resp.json())
     .then((data) => {
@@ -36,6 +39,8 @@ const run = () => {
         let author = document.querySelector('.auth')
         author.innerHTML = `- ${quote.author}`
         let ans = String(date.startOfToday())
+        let likes = document.querySelector(".counter")
+        likes.innerHTML = quote.likes
         // let day = ans.substr(0,4)
         document.querySelector('.date').innerHTML = `${ans.substring(0,3)}  ${ans.substring(8,10)}`
         console.log(date.startOfYesterday())
@@ -118,7 +123,37 @@ let like = (e) => {
             }
         })
         .then((resp) => resp.json())
-        .then((data) => console.log(data))
+        .then((data) => {
+            document.querySelector(".title").innerHTML = liked
+        })
+        console.log(user_likes)
+    }
+    else {
+        document.querySelector('.fa-heart').classList.remove('animated','pulse', 'heart_red')
+        let curr = document.querySelector('.counter').innerHTML
+        console.log(curr)
+        document.querySelector('.counter').innerHTML = parseInt(curr,10)-1
+        let liked = document.querySelector('.title').innerHTML
+        let user_likes = JSON.parse(localStorage.getItem("liked"))
+        console.log(user_likes)
+        user_likes.push(liked)
+        localStorage.setItem("liked",JSON.stringify(user_likes))
+        fetch(`http://127.0.0.1:5000/like`, {
+            method: "PUT",
+            body: JSON.stringify({
+                cat: ret,
+                quote: liked,
+                like: parseInt(curr,10)-1
+            }),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then((resp) => resp.json())
+        .then((data) => {
+            document.querySelector(".title").innerHTML = liked
+        })
         console.log(user_likes)
     }
     
@@ -131,4 +166,5 @@ document.querySelectorAll('.choice').forEach((choice) => {
 
 document.querySelector('.like').addEventListener("click", like)
 
-run()
+if (performance.navigation.type == 1)
+    run()
