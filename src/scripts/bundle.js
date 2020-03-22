@@ -22,7 +22,7 @@ document.querySelector('#current_tag').innerHTML = ''+ret[0].toUpperCase()+ret.s
 
 const run = () => {
     console.log("running again")
-    fetch(`http://127.0.0.1:5000/${ret}`)
+    fetch(`http://quoteds.herokuapp.com/${ret}`)
     .then((resp) => resp.json())
     .then((data) => {
         console.log(data.quotes)
@@ -52,6 +52,7 @@ const run = () => {
     })
     let updateClock = () => {
         let d = new Date()
+        console.log(d.getHours)
         document.querySelector('#time').innerHTML = `${d.getHours()} : ${d.getMinutes()}`
         console.log(`${d.getHours()} : ${d.getMinutes()}`)
         setTimeout(updateClock,1000)
@@ -111,7 +112,10 @@ let like = (e) => {
         console.log(user_likes)
         user_likes.push(liked)
         localStorage.setItem("liked",JSON.stringify(user_likes))
-        fetch(`http://127.0.0.1:5000/like`, {
+        if(ret == "spiritual") {
+            ret = "spirit"
+        }
+        fetch(`http://quoteds.herokuapp.com/like`, {
             method: "PUT",
             body: JSON.stringify({
                 cat: ret,
@@ -139,7 +143,7 @@ let like = (e) => {
         console.log(user_likes)
         user_likes.push(liked)
         localStorage.setItem("liked",JSON.stringify(user_likes))
-        fetch(`http://127.0.0.1:5000/like`, {
+        fetch(`http://quoteds.herokuapp.com/like`, {
             method: "PUT",
             body: JSON.stringify({
                 cat: ret,
